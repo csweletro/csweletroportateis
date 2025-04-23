@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Produtos - CSW Eletro</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f1f1f1; }
+    header, footer { background-color: #007bff; color: white; text-align: center; padding: 20px; }
+    nav { background-color: #0056b3; text-align: center; padding: 10px; }
+    nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
+    .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; padding: 30px; }
+    .product-card { background: white; border-radius: 8px; padding: 15px; box-shadow: 0 0 10px rgba(0,0,0,0.1); text-align: center; }
+    .product-card img { width: 100%; border-radius: 8px; }
+    .product-card button { background-color: #007bff; border: none; color: white; padding: 8px 12px; border-radius: 4px; margin-top: 10px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>CSW Eletro</h1>
+    <p>Confira todos os nossos produtos!</p>
+  </header>
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="produtos.html">Produtos</a>
+    <a href="carrinho.html">Carrinho</a>
+    <a href="contato.html">Contato</a>
+  </nav>
+  <section class="products">
+    <div class="product-card">
+      <img src="https://via.placeholder.com/200x150" alt="Produto">
+      <h3>Smartphone Galaxy A34</h3>
+      <p>R$ 1.799,00</p>
+      <button onclick="adicionarCarrinho('Smartphone Galaxy A34', 1799)">Adicionar ao Carrinho</button>
+    </div>
+    <div class="product-card">
+      <img src="https://via.placeholder.com/200x150" alt="Produto">
+      <h3>Notebook Dell i5</h3>
+      <p>R$ 3.299,00</p>
+      <button onclick="adicionarCarrinho('Notebook Dell i5', 3299)">Adicionar ao Carrinho</button>
+    </div>
+    <div class="product-card">
+      <img src="https://via.placeholder.com/200x150" alt="Produto">
+      <h3>Fritadeira Air Fryer</h3>
+      <p>R$ 429,00</p>
+      <button onclick="adicionarCarrinho('Fritadeira Air Fryer', 429)">Adicionar ao Carrinho</button>
+    </div>
+  </section>
+  <footer>
+    &copy; 2025 CSW Eletro - Todos os direitos reservados
+  </footer>
+  <script>
+    function adicionarCarrinho(nome, preco) {
+      const item = { nome, preco };
+      const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+      carrinho.push(item);
+      localStorage.setItem("carrinho", JSON.stringify(carrinho));
+      alert("Produto adicionado ao carrinho!");
+    }
+  </script>
+</body>
+</html>
